@@ -10,9 +10,24 @@ export default class Home extends Component {
 		axios
 			.get("https://nc-news-anthony.herokuapp.com/api/articles")
 			.then((res) => {
-				console.log(res.data);
-				this.setState({ students: res.data.students });
+				console.log(res.data.articles);
+				this.setState({ articles: res.data.articles });
 			});
+	};
+
+	generateList = () => {
+		return (
+			<ul>
+				{this.state.articles.map((article) => {
+					return (
+						<li
+							key={
+								article.article_id
+							}>{`${article.title} by ${article.author}`}</li>
+					);
+				})}
+			</ul>
+		);
 	};
 
 	componentDidMount() {
@@ -23,6 +38,7 @@ export default class Home extends Component {
 		return (
 			<div>
 				<h1>Home</h1>
+				{this.generateList()}
 			</div>
 		);
 	}
