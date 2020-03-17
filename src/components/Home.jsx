@@ -2,32 +2,18 @@
 
 import React, { Component } from "react";
 import axios from "axios";
+import TopicsFilter from "./TopicsFilter";
+import generateList from "./generateList";
 
 export default class Home extends Component {
-	state = { articles: [] };
+	state = { articles: [], loading: true };
 
 	retriveArticles = () => {
 		axios
 			.get("https://nc-news-anthony.herokuapp.com/api/articles")
 			.then((res) => {
-				console.log(res.data.articles);
-				this.setState({ articles: res.data.articles });
+				this.setState({ articles: res.data.articles, loading: false });
 			});
-	};
-
-	generateList = () => {
-		return (
-			<ul>
-				{this.state.articles.map((article) => {
-					return (
-						<li
-							key={
-								article.article_id
-							}>{`${article.title} by ${article.author}`}</li>
-					);
-				})}
-			</ul>
-		);
 	};
 
 	componentDidMount() {
@@ -35,11 +21,16 @@ export default class Home extends Component {
 	}
 
 	render() {
-		return (
-			<div>
-				<h1>Home</h1>
-				{this.generateList()}
-			</div>
-		);
+		if (this.state.loading) {
+			return <h2>loading...</h2>;
+		} else {
+			return (
+				<div>
+					<h1>Home</h1>
+					<TopicsFilter />
+					{generateList(this.state.articles)}
+				</div>
+			);
+		}
 	}
 }
