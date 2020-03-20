@@ -4,6 +4,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import TopicsFilter from "./TopicsFilter";
 import generateList from "./generateList";
+import SortBy from "./SortBy";
 
 export default class Home extends Component {
 	state = { articles: [], loading: true };
@@ -28,6 +29,7 @@ export default class Home extends Component {
 				<div>
 					<h1>Home</h1>
 					<TopicsFilter />
+					<SortBy />
 					{generateList(this.state.articles)}
 				</div>
 			);
