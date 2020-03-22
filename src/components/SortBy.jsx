@@ -4,7 +4,7 @@ import React from "react";
 import axios from "axios";
 
 class SortBy extends React.Component {
-	state = {};
+	state = { selectedOption: null };
 
 	getSortedArticles = (key) => {
 		return axios.get(
@@ -12,20 +12,20 @@ class SortBy extends React.Component {
 		);
 	};
 
+	handleChange = (event) => {
+		this.setState({ selectedOption: event.target.value });
+		this.getSortedArticles(event.target.value);
+	};
+
 	render() {
 		return (
-			<select>
+			<select onChange={this.handleChange}>
 				<option default hidden>
 					Select Sort By:
 				</option>
-				<option
-					onClick={() => {
-						this.getSortedArticles("created_at");
-					}}>
-					Date created
-				</option>
-				<option>Comment count</option>
-				<option>Votes</option>
+				<option value={"created_at"}>Date created</option>
+				<option value={"comment_count"}>Comment count</option>
+				<option value={"votes"}>Votes</option>
 			</select>
 		);
 	}
