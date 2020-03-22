@@ -7,9 +7,11 @@ class SortBy extends React.Component {
 	state = { selectedOption: null };
 
 	getSortedArticles = (key) => {
-		return axios.get(
-			`https://nc-news-anthony.herokuapp.com/api/articles?sort_by=${key}`
-		);
+		return axios
+			.get(`https://nc-news-anthony.herokuapp.com/api/articles?sort_by=${key}`)
+			.then((res) => {
+				console.log(res.data.articles);
+			});
 	};
 
 	handleChange = (event) => {

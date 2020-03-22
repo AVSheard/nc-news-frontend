@@ -7,6 +7,7 @@ import Header from "./components/Header";
 import Navigation from "./components/Navigation";
 import Home from "./components/Home";
 import FilteredHome from "./components/FilteredHome";
+import Article from "./components/Article";
 
 function App() {
 	return (
@@ -16,6 +17,7 @@ function App() {
 			<Router>
 				<Home path="/" />
 				<FilteredHome path="/:topic" />
+				<Article path="/article/:article" />
 			</Router>
 		</div>
 	);
