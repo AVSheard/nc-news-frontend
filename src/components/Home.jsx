@@ -23,7 +23,7 @@ export default class Home extends Component {
 
 	render() {
 		if (this.state.loading) {
-			return <h2>loading...</h2>;
+			return <h2>loading articles...</h2>;
 		} else {
 			return (
 				<div>
