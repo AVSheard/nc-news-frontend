@@ -17,7 +17,7 @@ function App() {
 			<Router>
 				<Home path="/" />
 				<FilteredHome path="/:topic" />
-				<Article path="/article/:article" />
+				<Article path="/article/:id" />
 			</Router>
 		</div>
 	);

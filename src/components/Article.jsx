@@ -2,9 +2,10 @@
 
 import React, { Component } from "react";
 import axios from "axios";
+import generateComments from "./generateComments";
 
 export default class Article extends Component {
-	state = { article: {} };
+	state = { article: {}, loading: false };
 
 	retriveArticle = (id) => {
 		axios
@@ -15,14 +16,24 @@ export default class Article extends Component {
 	};
 
 	componentDidMount() {
-		this.retriveArticle();
+		this.retriveArticle(this.props.id);
 	}
 
 	render() {
-		return (
-			<div>
-				<h1>Article</h1>
-			</div>
-		);
+		if (this.state.loading) {
+			return <h2>loading...</h2>;
+		} else {
+			const { article } = this.state;
+			return (
+				<div>
+					<h1>Article</h1>
+					<h2>
+						{article.title} by {article.author}
+					</h2>
+					<h3>{article.body}</h3>
+					{generateComments(this.props.id)}
+				</div>
+			);
+		}
 	}
 }
