@@ -7,7 +7,7 @@ class SortBy extends React.Component {
 
 	handleChange = (event) => {
 		this.setState({ selectedOption: event.target.value });
-		this.props.getSortedArticles(event.target.value);
+		this.props.getSortedArticles(event.target.value, this.props.topic);
 	};
 
 	render() {

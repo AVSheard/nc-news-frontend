@@ -21,7 +21,6 @@ export default class Home extends Component {
 		return axios
 			.get(`https://nc-news-anthony.herokuapp.com/api/articles?sort_by=${key}`)
 			.then((res) => {
-				console.log(res.data.articles);
 				this.setState({ articles: res.data.articles });
 			});
 	};

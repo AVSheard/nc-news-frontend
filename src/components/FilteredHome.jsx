@@ -4,6 +4,7 @@ import axios from "axios";
 import React, { Component } from "react";
 import TopicsFilter from "./TopicsFilter";
 import generateList from "./generateList";
+import SortBy from "./SortBy";
 
 export default class FilteredHome extends Component {
 	state = { articles: [] };
@@ -11,6 +12,16 @@ export default class FilteredHome extends Component {
 	retriveArticles = (topic) => {
 		axios
 			.get(`https://nc-news-anthony.herokuapp.com/api/articles?topic=${topic}`)
+			.then((res) => {
+				this.setState({ articles: res.data.articles });
+			});
+	};
+
+	getSortedArticles = (key, topic) => {
+		return axios
+			.get(
+				`https://nc-news-anthony.herokuapp.com/api/articles?sort_by=${key}&topic=${topic}`
+			)
 			.then((res) => {
 				this.setState({ articles: res.data.articles });
 			});
@@ -31,6 +42,10 @@ export default class FilteredHome extends Component {
 			<div>
 				<h1>{this.props.topic}</h1>
 				<TopicsFilter />
+				<SortBy
+					getSortedArticles={this.getSortedArticles}
+					topic={this.props.topic}
+				/>
 				{generateList(this.state.articles)}
 			</div>
 		);
