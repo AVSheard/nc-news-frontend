@@ -17,6 +17,15 @@ export default class Home extends Component {
 			});
 	};
 
+	getSortedArticles = (key) => {
+		return axios
+			.get(`https://nc-news-anthony.herokuapp.com/api/articles?sort_by=${key}`)
+			.then((res) => {
+				console.log(res.data.articles);
+				this.setState({ articles: res.data.articles });
+			});
+	};
+
 	componentDidMount() {
 		this.retriveArticles();
 	}
@@ -29,7 +38,7 @@ export default class Home extends Component {
 				<div>
 					<h1>Home</h1>
 					<TopicsFilter />
-					<SortBy />
+					<SortBy getSortedArticles={this.getSortedArticles} />
 					{generateList(this.state.articles)}
 				</div>
 			);

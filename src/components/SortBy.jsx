@@ -1,22 +1,13 @@
 /** @format */
 
 import React from "react";
-import axios from "axios";
 
 class SortBy extends React.Component {
 	state = { selectedOption: null };
 
-	getSortedArticles = (key) => {
-		return axios
-			.get(`https://nc-news-anthony.herokuapp.com/api/articles?sort_by=${key}`)
-			.then((res) => {
-				console.log(res.data.articles);
-			});
-	};
-
 	handleChange = (event) => {
 		this.setState({ selectedOption: event.target.value });
-		this.getSortedArticles(event.target.value);
+		this.props.getSortedArticles(event.target.value);
 	};
 
 	render() {
