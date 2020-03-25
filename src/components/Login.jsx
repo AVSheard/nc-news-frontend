@@ -1,17 +1,27 @@
 /** @format */
 
 import React, { Component } from "react";
+import axios from "axios";
 
 export default class Login extends Component {
 	state = { username: "" };
+
+	validateUser = (username) => {
+		axios
+			.get(`https://nc-news-anthony.herokuapp.com/api/users/${username}`)
+			.then((res) => {
+				console.log(res.data.user);
+			});
+	};
 
 	handleChange = (event) => {
 		this.setState({ username: event.target.value });
 	};
 
-	handleSubmit(event) {
+	handleSubmit = (event) => {
 		event.preventDefault();
-	}
+		this.validateUser(this.state.username);
+	};
 
 	render() {
 		return (
