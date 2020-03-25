@@ -8,11 +8,13 @@ import Navigation from "./components/Navigation";
 import Home from "./components/Home";
 import FilteredHome from "./components/FilteredHome";
 import Article from "./components/Article";
+import Login from "./components/Login";
 
 function App() {
 	return (
 		<div className="App">
 			<Navigation />
+			<Login />
 			<Header />
 			<Router>
 				<Home path="/" />
