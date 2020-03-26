@@ -3,6 +3,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import GenerateComments from "./GenerateComments";
+import NewComment from "./NewComment";
 
 export default class Article extends Component {
 	state = { article: {}, loading: true };
@@ -31,6 +32,7 @@ export default class Article extends Component {
 						{article.title} by {article.author}
 					</h2>
 					<h3>{article.body}</h3>
+					<NewComment id={this.props.id} />
 					<GenerateComments id={this.props.id} />
 				</div>
 			);
