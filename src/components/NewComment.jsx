@@ -19,7 +19,6 @@ export default observer(
 					}
 				)
 				.then((res) => {
-					console.log(res.data.comment);
 					this.setState({
 						newComments: [res.data.comment, ...this.state.newComments]
 					});
@@ -34,10 +33,6 @@ export default observer(
 			event.preventDefault();
 			this.uploadComment(this.props.id);
 		};
-
-		// componentDidUpdate(prevProps, prevState){
-		//     if (prevProps)
-		// }
 
 		render() {
 			return (

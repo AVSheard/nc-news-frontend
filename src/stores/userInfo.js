@@ -9,7 +9,8 @@ export class UserInfo {
 }
 
 decorate(UserInfo, {
-	user: observable
+	user: observable,
+	loggedIn: observable
 });
 
 export const userInfo = new UserInfo();
