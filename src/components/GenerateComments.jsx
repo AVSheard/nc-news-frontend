@@ -21,7 +21,6 @@ export default class GenerateComments extends Component {
 	render() {
 		return (
 			<div>
-				<h3>comments:</h3>
 				{this.state.comments.map((comment) => {
 					return (
 						<div key={comment.comment_id}>
