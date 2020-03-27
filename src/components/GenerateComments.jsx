@@ -18,18 +18,31 @@ export default class GenerateComments extends Component {
 		this.retriveComments(this.props.id);
 	};
 
+	handleClick = (event) => {
+		axios
+			.delete(
+				`https://nc-news-anthony.herokuapp.com/api/comments/${event.target.value}`
+			)
+			.then((res) => {
+				console.log(res);
+			});
+	};
+
 	render() {
 		return (
-			<div>
+			<ul>
 				{this.state.comments.map((comment) => {
 					return (
 						<div key={comment.comment_id}>
-							<h4>{comment.author}</h4>
+							<h4>{comment.author}:</h4>
 							<h4>{comment.body}</h4>
+							<button onClick={this.handleClick} value={comment.comment_id}>
+								Delete Comment
+							</button>
 						</div>
 					);
 				})}
-			</div>
+			</ul>
 		);
 	}
 }
