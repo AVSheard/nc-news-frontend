@@ -33,8 +33,12 @@ export default class Article extends Component {
 						{article.title} by {article.author}
 					</h2>
 					<h3>{article.body}</h3>
-					<Voter votes={article.votes} id={article.article_id} />
-
+					<Voter
+						votes={article.votes}
+						id={article.article_id}
+						url={"articles"}
+						author={article.author}
+					/>
 					<NewComment id={article.article_id} />
 					<GenerateComments id={article.article_id} />
 				</div>

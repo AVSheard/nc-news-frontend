@@ -15,7 +15,7 @@ export default observer(
 
 		handleVote = (voteChange) => {
 			axios.patch(
-				`https://nc-news-anthony.herokuapp.com/api/articles/${this.props.id}`,
+				`https://nc-news-anthony.herokuapp.com/api/${this.props.url}/${this.props.id}`,
 				{ inc_votes: voteChange }
 			);
 			this.setState({ votes: this.state.votes + voteChange });
@@ -25,7 +25,7 @@ export default observer(
 			return (
 				<>
 					<h3>Votes: {this.state.votes}</h3>
-					{userInfo.loggedIn && (
+					{userInfo.loggedIn && this.props.author !== userInfo.user && (
 						<>
 							<button
 								onClick={() => {
