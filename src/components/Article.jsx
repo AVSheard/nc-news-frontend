@@ -34,6 +34,7 @@ export default class Article extends Component {
 					</h2>
 					<h3>{article.body}</h3>
 					<Voter votes={article.votes} id={article.article_id} />
+
 					<NewComment id={article.article_id} />
 					<GenerateComments id={article.article_id} />
 				</div>
