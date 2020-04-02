@@ -18,7 +18,9 @@ export default observer(
 				`https://nc-news-anthony.herokuapp.com/api/${this.props.url}/${this.props.id}`,
 				{ inc_votes: voteChange }
 			);
-			this.setState({ votes: this.state.votes + voteChange });
+			this.setState((currentState) => {
+				return { votes: currentState.votes + voteChange };
+			});
 		};
 
 		render() {

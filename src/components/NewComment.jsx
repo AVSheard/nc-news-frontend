@@ -19,8 +19,10 @@ export default observer(
 					}
 				)
 				.then((res) => {
-					this.setState({
-						newComments: [res.data.comment, ...this.state.newComments]
+					this.setState((currentState) => {
+						return {
+							newComments: [res.data.comment, ...currentState.newComments]
+						};
 					});
 				});
 		};
