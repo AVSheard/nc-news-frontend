@@ -5,6 +5,7 @@ import axios from "axios";
 import { observer } from "mobx-react";
 import { userInfo } from "../stores/userInfo";
 import Modal from "react-modal";
+import Voter from "./Voter";
 
 export default observer(
 	class GenerateComments extends Component {
@@ -52,6 +53,12 @@ export default observer(
 								<div key={comment.comment_id}>
 									<h4>{comment.author}:</h4>
 									<h4>{comment.body}</h4>
+									<Voter
+										votes={comment.votes}
+										id={comment.comment_id}
+										url={"comments"}
+										author={comment.author}
+									/>
 									{userInfo.user === comment.author && (
 										<button onClick={this.openPopUp} value={comment.comment_id}>
 											Delete Comment
