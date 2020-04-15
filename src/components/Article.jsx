@@ -2,9 +2,8 @@
 
 import React, { Component } from "react";
 import axios from "axios";
-import GenerateComments from "./GenerateComments";
-import NewComment from "./NewComment";
 import Voter from "./Voter";
+import Comments from "./Comments";
 
 export default class Article extends Component {
 	state = { article: {}, loading: true };
@@ -27,7 +26,7 @@ export default class Article extends Component {
 		} else {
 			const { article } = this.state;
 			return (
-				<div>
+				<>
 					<h1>Article</h1>
 					<h2>
 						{article.title} by {article.author}
@@ -39,10 +38,13 @@ export default class Article extends Component {
 						url={"articles"}
 						author={article.author}
 					/>
-					<NewComment id={article.article_id} />
-					<GenerateComments id={article.article_id} />
-				</div>
+					<Comments id={article.article_id} />
+				</>
 			);
 		}
 	}
 }
+
+// Currently Article -> children: NewComment & GenerateComments
+// Create a "Comments" component -> children: NewComment & GenerateComments
+// Comments fetch and store comments, render other components, passing down props / fns
