@@ -34,15 +34,6 @@ export default observer(
 							<input type="submit" value="Submit"></input>
 						</form>
 					)}
-
-					{/* {this.state.newComments.map((comment) => {
-						return (
-							<div key={comment.comment_id}>
-								<h4>{comment.author}</h4>
-								<h4>{comment.body}</h4>
-							</div>
-						);
-					})} */}
 				</>
 			);
 		}

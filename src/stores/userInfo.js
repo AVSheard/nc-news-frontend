@@ -4,7 +4,6 @@ import { decorate, observable } from "mobx";
 export class UserInfo {
 	constructor() {
 		this.user = null;
-		this.loggedIn = false;
 	}
 }
 
