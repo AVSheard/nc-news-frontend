@@ -1,17 +1,62 @@
 /** @format */
 
 import React, { Component } from "react";
+import axios from "axios";
 import NewComment from "./NewComment";
 import GenerateComments from "./GenerateComments";
+import { observer } from "mobx-react";
+import { userInfo } from "../stores/userInfo";
 
-export default class Comments extends Component {
-	render() {
-		const { id } = this.props;
-		return (
-			<>
-				<NewComment id={id} />
-				<GenerateComments id={id} />
-			</>
-		);
+export default observer(
+	class Comments extends Component {
+		state = { comments: [] };
+
+		retriveComments = (id) => {
+			axios
+				.get(
+					`https://nc-news-anthony.herokuapp.com/api/articles/${id}/comments`
+				)
+				.then((res) => {
+					this.setState({ comments: res.data.comments });
+				});
+		};
+
+		uploadComment = (id, comment) => {
+			console.log(id);
+			axios
+				.post(
+					`https://nc-news-anthony.herokuapp.com/api/articles/${id}/comments`,
+					{
+						username: userInfo.user,
+						body: comment,
+					}
+				)
+				.then((res) => {
+					this.setState((currentState) => {
+						return {
+							comments: [res.data.comment, ...currentState.comments],
+						};
+					});
+				});
+		};
+
+		render() {
+			const { id } = this.props;
+			const { comments } = this.state;
+			return (
+				<>
+					<NewComment
+						id={id}
+						comments={comments}
+						uploadComment={this.uploadComment}
+					/>
+					<GenerateComments
+						id={id}
+						comments={comments}
+						retriveComments={this.retriveComments}
+					/>
+				</>
+			);
+		}
 	}
-}
+);

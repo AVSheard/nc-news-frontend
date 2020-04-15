@@ -1,31 +1,12 @@
 /** @format */
 
 import React, { Component } from "react";
-import axios from "axios";
 import { observer } from "mobx-react";
 import { userInfo } from "../stores/userInfo";
 
 export default observer(
 	class NewComment extends Component {
-		state = { comment: "", newComments: [] };
-
-		uploadComment = (id) => {
-			axios
-				.post(
-					`https://nc-news-anthony.herokuapp.com/api/articles/${id}/comments`,
-					{
-						username: userInfo.user,
-						body: this.state.comment
-					}
-				)
-				.then((res) => {
-					this.setState((currentState) => {
-						return {
-							newComments: [res.data.comment, ...currentState.newComments]
-						};
-					});
-				});
-		};
+		state = { comment: "" };
 
 		handleChange = (event) => {
 			this.setState({ comment: event.target.value });
@@ -33,7 +14,8 @@ export default observer(
 
 		handleSubmit = (event) => {
 			event.preventDefault();
-			this.uploadComment(this.props.id);
+			this.props.uploadComment(this.props.id, this.state.comment);
+			this.setState({ comment: "" });
 		};
 
 		render() {
@@ -53,14 +35,14 @@ export default observer(
 						</form>
 					)}
 
-					{this.state.newComments.map((comment) => {
+					{/* {this.state.newComments.map((comment) => {
 						return (
 							<div key={comment.comment_id}>
 								<h4>{comment.author}</h4>
 								<h4>{comment.body}</h4>
 							</div>
 						);
-					})}
+					})} */}
 				</>
 			);
 		}

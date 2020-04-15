@@ -9,24 +9,14 @@ import Voter from "./Voter";
 
 export default observer(
 	class GenerateComments extends Component {
-		state = { comments: [], open: false, chosenComent: -1 };
-
-		retriveComments = (id) => {
-			axios
-				.get(
-					`https://nc-news-anthony.herokuapp.com/api/articles/${id}/comments`
-				)
-				.then((res) => {
-					this.setState({ comments: res.data.comments });
-				});
-		};
+		state = { open: false, chosenComent: -1 };
 
 		closePopUp = () => {
 			this.setState({ open: false });
 		};
 
 		componentDidMount = () => {
-			this.retriveComments(this.props.id);
+			this.props.retriveComments(this.props.id);
 		};
 
 		handleClick = (event) => {
@@ -36,7 +26,7 @@ export default observer(
 					`https://nc-news-anthony.herokuapp.com/api/comments/${this.state.chosenComent}`
 				)
 				.then((res) => {
-					this.retriveComments(this.props.id);
+					this.props.retriveComments(this.props.id);
 				});
 		};
 
@@ -48,7 +38,7 @@ export default observer(
 			return (
 				<>
 					<ul>
-						{this.state.comments.map((comment) => {
+						{this.props.comments.map((comment) => {
 							return (
 								<div key={comment.comment_id}>
 									<h4>{comment.author}:</h4>
