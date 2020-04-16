@@ -3,10 +3,10 @@
 import React from "react";
 import { Link } from "@reach/router";
 
-const generateList = (articles) => {
+const GenerateList = (props) => {
 	return (
 		<ul>
-			{articles.map((article) => {
+			{props.articles.map((article) => {
 				return (
 					<li key={article.article_id}>
 						<Link to={`../article/${article.article_id}`}>{article.title}</Link>{" "}
@@ -18,4 +18,4 @@ const generateList = (articles) => {
 	);
 };
 
-export default generateList;
+export default GenerateList;
