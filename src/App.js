@@ -6,7 +6,6 @@ import "./App.css";
 import Header from "./components/Header";
 import Navigation from "./components/Navigation";
 import Home from "./components/Home";
-import FilteredHome from "./components/FilteredHome";
 import Article from "./components/Article";
 import Login from "./components/Login";
 import Error from "./components/Error";
@@ -19,7 +18,7 @@ function App() {
 			<Header />
 			<Router>
 				<Home path="/" />
-				<FilteredHome path="/:topic" />
+				<Home path="/:topic" />
 				<Article path="/article/:id" />
 				<Error default />
 			</Router>
