@@ -27,7 +27,7 @@ export default observer(
 			return (
 				<>
 					<h3>Votes: {this.state.votes}</h3>
-					{userInfo.loggedIn && this.props.author !== userInfo.user && (
+					{userInfo.user && this.props.author !== userInfo.user && (
 						<>
 							<button
 								onClick={() => {

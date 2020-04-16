@@ -22,7 +22,7 @@ export default observer(
 			return (
 				<>
 					<h3>comments:</h3>
-					{userInfo.loggedIn && (
+					{userInfo.user && (
 						<form onSubmit={this.handleSubmit}>
 							<label>
 								Add commet:
