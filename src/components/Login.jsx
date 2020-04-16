@@ -8,7 +8,7 @@ import { observer } from "mobx-react";
 
 export default observer(
 	class Login extends Component {
-		state = { username: "", open: false };
+		state = { username: "jessjelly", open: false };
 
 		validateUser = (username) => {
 			axios
