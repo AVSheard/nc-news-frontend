@@ -22,22 +22,23 @@ export default observer(
 		};
 
 		uploadComment = (id, comment) => {
-			console.log(id);
-			axios
-				.post(
-					`https://nc-news-anthony.herokuapp.com/api/articles/${id}/comments`,
-					{
-						username: userInfo.user,
-						body: comment,
-					}
-				)
-				.then((res) => {
-					this.setState((currentState) => {
-						return {
-							comments: [res.data.comment, ...currentState.comments],
-						};
+			if (comment) {
+				axios
+					.post(
+						`https://nc-news-anthony.herokuapp.com/api/articles/${id}/comments`,
+						{
+							username: userInfo.user,
+							body: comment,
+						}
+					)
+					.then((res) => {
+						this.setState((currentState) => {
+							return {
+								comments: [res.data.comment, ...currentState.comments],
+							};
+						});
 					});
-				});
+			}
 		};
 
 		render() {

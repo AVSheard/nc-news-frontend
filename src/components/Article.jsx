@@ -62,7 +62,3 @@ export default class Article extends Component {
 		}
 	}
 }
-
-// Currently Article -> children: NewComment & GenerateComments
-// Create a "Comments" component -> children: NewComment & GenerateComments
-// Comments fetch and store comments, render other components, passing down props / fns
