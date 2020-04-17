@@ -7,7 +7,15 @@ import GenerateList from "./GenerateList";
 import SortBy from "./SortBy";
 
 export default class Home extends Component {
-	state = { articles: [], loading: true };
+	state = { articles: [], loading: true, msg: "", status: 200 };
+
+	handleError = (err) => {
+		this.setState({
+			msg: err.response.data.msg,
+			status: err.response.data.status,
+			loading: false,
+		});
+	};
 
 	retriveArticles = (topic) => {
 		if (topic) {
@@ -17,12 +25,18 @@ export default class Home extends Component {
 				)
 				.then((res) => {
 					this.setState({ articles: res.data.articles, loading: false });
+				})
+				.catch((err) => {
+					this.handleError(err);
 				});
 		} else {
 			axios
 				.get("https://nc-news-anthony.herokuapp.com/api/articles")
 				.then((res) => {
 					this.setState({ articles: res.data.articles, loading: false });
+				})
+				.catch((err) => {
+					this.handleError(err);
 				});
 		}
 	};
@@ -35,6 +49,9 @@ export default class Home extends Component {
 				)
 				.then((res) => {
 					this.setState({ articles: res.data.articles });
+				})
+				.catch((err) => {
+					this.handleError(err);
 				});
 		} else {
 			return axios
@@ -43,6 +60,9 @@ export default class Home extends Component {
 				)
 				.then((res) => {
 					this.setState({ articles: res.data.articles });
+				})
+				.catch((err) => {
+					this.handleError(err);
 				});
 		}
 	};
@@ -60,6 +80,13 @@ export default class Home extends Component {
 	render() {
 		if (this.state.loading) {
 			return <h2>loading articles...</h2>;
+		} else if (this.state.msg) {
+			return (
+				<>
+					<h1>{this.state.status}</h1>
+					<h2>{this.state.msg}</h2>
+				</>
+			);
 		} else {
 			return (
 				<div>
