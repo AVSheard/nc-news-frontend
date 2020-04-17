@@ -6,13 +6,24 @@ import Voter from "./Voter";
 import Comments from "./Comments";
 
 export default class Article extends Component {
-	state = { article: {}, loading: true };
+	state = { article: {}, loading: true, msg: "", status: 200 };
+
+	handleError = (err) => {
+		this.setState({
+			msg: err.response.data.msg,
+			status: err.response.data.status,
+			loading: false,
+		});
+	};
 
 	retriveArticle = (id) => {
 		axios
 			.get(`https://nc-news-anthony.herokuapp.com/api/articles/${id}`)
 			.then((res) => {
 				this.setState({ article: res.data.article, loading: false });
+			})
+			.catch((err) => {
+				this.handleError(err);
 			});
 	};
 
@@ -23,6 +34,13 @@ export default class Article extends Component {
 	render() {
 		if (this.state.loading) {
 			return <h2>loading article...</h2>;
+		} else if (this.state.msg) {
+			return (
+				<>
+					<h1>{this.state.status}</h1>
+					<h2>{this.state.msg}</h2>
+				</>
+			);
 		} else {
 			const { article } = this.state;
 			return (
