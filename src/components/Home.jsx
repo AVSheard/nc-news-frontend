@@ -63,7 +63,7 @@ export default class Home extends Component {
 		} else {
 			return (
 				<div>
-					<h1>Home</h1>
+					<h1>{this.props.topic || "Home"}</h1>
 					<TopicsFilter />
 					<SortBy
 						getSortedArticles={this.getSortedArticles}
