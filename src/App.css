@@ -65,3 +65,10 @@
 	margin: 5px 50px 5px;
 	align-items: center;
 }
+
+.articleLink {
+	list-style-type: none;
+	border: 1px solid #4caf50;
+	margin: 5px 50px 5px;
+	padding: 5px;
+}
