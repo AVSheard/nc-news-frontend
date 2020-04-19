@@ -21,7 +21,7 @@ export default observer(
 		render() {
 			return (
 				<>
-					<h3>comments:</h3>
+					<h3>Comments:</h3>
 					{userInfo.user && (
 						<form onSubmit={this.handleSubmit}>
 							<label>

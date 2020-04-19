@@ -54,3 +54,8 @@
 	border-color: #cdf2c9;
 	background-color: #cdd2c9;
 }
+
+.article {
+	border: 1px solid #4caf50;
+	margin: 25px 50px 75px;
+}

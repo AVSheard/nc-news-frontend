@@ -44,12 +44,11 @@ export default class Article extends Component {
 		} else {
 			const { article } = this.state;
 			return (
-				<>
-					<h1>Article</h1>
-					<h2>
+				<div className="article">
+					<h1>
 						{article.title} by {article.author}
-					</h2>
-					<h3>{article.body}</h3>
+					</h1>
+					<h2>{article.body}</h2>
 					<Voter
 						votes={article.votes}
 						id={article.article_id}
@@ -57,7 +56,7 @@ export default class Article extends Component {
 						author={article.author}
 					/>
 					<Comments id={article.article_id} />
-				</>
+				</div>
 			);
 		}
 	}
