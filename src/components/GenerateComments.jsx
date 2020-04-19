@@ -40,9 +40,9 @@ export default observer(
 					<ul>
 						{this.props.comments.map((comment) => {
 							return (
-								<div key={comment.comment_id}>
-									<h4>{comment.author}:</h4>
-									<h4>{comment.body}</h4>
+								<div key={comment.comment_id} className="comment">
+									<h3>{comment.author}:</h3>
+									<h3>{comment.body}</h3>
 									<Voter
 										votes={comment.votes}
 										id={comment.comment_id}
