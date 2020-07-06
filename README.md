@@ -6,7 +6,7 @@ https://avsheard-ncnews.netlify.app/
 
 ### Project summary
 
-This repo contains the frontend for a reddit style news app where users can login, read news articles and up/down vote them. The repo sends GET, PATCH, POST and DELETE requests to a seperatly hosted backend. A back end for this repo can be found here: https://github.com/AVSheard/be-nc-news
+This repo contains the frontend for a reddit style news app where users can login, read news articles and up/down vote them. The repo sends GET, PATCH, POST and DELETE requests to a seperately hosted backend. A back end for this repo can be found here: https://github.com/AVSheard/be-nc-news
 
 ### How to run this repo
 
@@ -30,4 +30,4 @@ This repo contains the frontend for a reddit style news app where users can logi
 
 This repo has been designed to be run on a windows or OS operating system. 
 
-This repo has been built using Node.js v13.4.0, earlier versions of Node.js may not be commpatable.
+This repo has been built using Node.js v13.4.0, earlier versions of Node.js may not be compatible.
