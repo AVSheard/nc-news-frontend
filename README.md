@@ -22,13 +22,9 @@ This repo contains the frontend for a reddit style news app where users can logi
 
 6. Open a new terminal in VS code and run the command 'npm install' to install everything needed to run repo
 
-7. If you are using a linux operating system you will need to make a loginData.js file as detailed below. 
+7. Finally you will be able to run the repo by using the command 'npm start' in the projects terminal. After entering this command the repo will be opened in your default browser using local host.
 
-8. Before being able to use this repo you will need to get it to create a database by using the command 'npm seed'. Run this command again to revert the database back to its default setting. 
-
-9. To check that everything in the repo is working correctly before starting run the command 'npm test'. If you get a message indicating that any of the tests have failed check that you have followed all the previous steps correctly. After checking that you have followed all the previous steps if tests are still failing then check you have not accidentally made any of your own changes to the repo.
-
-10. Finally you will be able to run the repo by using the command 'npm run' in the projects terminal. You will need to send your own requests as this repo only contains the backend.
+8. To stop running the repo in your browser use the command 'Clrl+c'.
 
 ### Requirements
 
