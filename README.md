@@ -30,20 +30,6 @@ This repo contains the frontend for a reddit style news app where users can logi
 
 10. Finally you will be able to run the repo by using the command 'npm run' in the projects terminal. You will need to send your own requests as this repo only contains the backend.
 
-### Making a loginData.js file
-
-1. Make a blank file titled loginData.js in the main folder for the repo
-
-2. Copy the code below into the new file:
-
-```javascript
-const loginData = { username: "yourUserName", password: "yourPassword" };
-
-module.exports = loginData;
-```
-
-3. Replace yourUserName and yourPassword to your computers database username and password
-
 ### Requirements
 
 This repo has been designed to be run on a windows or OS operating system. 
