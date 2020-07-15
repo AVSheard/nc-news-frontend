@@ -3,11 +3,7 @@
 import React from "react";
 
 const Header = () => {
-	return (
-		<div>
-			<header className="App-header">NC Newwws</header>
-		</div>
-	);
+	return <header className="App-header">NC Newwws</header>;
 };
 
 export default Header;
