@@ -28,9 +28,12 @@ export default class TopicsFilter extends Component {
 					Choose Topic:
 					{this.state.topics.map((topic) => {
 						return (
-							<Link to={`../${topic.slug}`} key={topic.slug}>
-								{topic.slug}
-							</Link>
+							<>
+								{" "}
+								<Link to={`${topic.slug}`} key={topic.slug}>
+									{topic.slug}
+								</Link>
+							</>
 						);
 					})}
 				</label>
