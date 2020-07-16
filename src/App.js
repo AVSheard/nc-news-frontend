@@ -8,7 +8,7 @@ import Navigation from "./components/Navigation";
 import Home from "./components/Home";
 import Article from "./components/Article";
 import Login from "./components/Login";
-import Error from "./components/Error";
+import ErrorPage from "./components/ErrorPage";
 
 function App() {
 	return (
@@ -20,7 +20,7 @@ function App() {
 				<Home path="/" />
 				<Home path="/:topic" />
 				<Article path="/article/:id" />
-				<Error default />
+				<ErrorPage default />
 			</Router>
 		</div>
 	);

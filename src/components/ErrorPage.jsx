@@ -2,7 +2,7 @@
 
 import React from "react";
 
-const Error = () => {
+const ErrorPage = () => {
 	return (
 		<>
 			<h1>404</h1>
@@ -11,4 +11,4 @@ const Error = () => {
 	);
 };
 
-export default Error;
+export default ErrorPage;
