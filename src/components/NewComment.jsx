@@ -25,7 +25,7 @@ export default observer(
 					{userInfo.user && (
 						<form onSubmit={this.handleSubmit}>
 							<label>
-								Add commet:
+								Add comment:
 								<input
 									type="text"
 									value={this.state.comment}
