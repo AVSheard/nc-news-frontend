@@ -9,7 +9,7 @@ import Voter from "./Voter";
 
 export default observer(
 	class GenerateComments extends Component {
-		state = { open: false, chosenComent: -1 };
+		state = { open: false, chosenComent: null };
 
 		closePopUp = () => {
 			this.setState({ open: false });
