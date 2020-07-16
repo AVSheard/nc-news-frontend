@@ -9,7 +9,7 @@ import Voter from "./Voter";
 
 export default observer(
 	class GenerateComments extends Component {
-		state = { open: false, chosenComent: null };
+		state = { open: false, chosenComment: null };
 
 		closePopUp = () => {
 			this.setState({ open: false });
@@ -23,7 +23,7 @@ export default observer(
 			this.closePopUp();
 			axios
 				.delete(
-					`https://nc-news-anthony.herokuapp.com/api/comments/${this.state.chosenComent}`
+					`https://nc-news-anthony.herokuapp.com/api/comments/${this.state.chosenComment}`
 				)
 				.then((res) => {
 					this.props.retriveComments(this.props.id);
@@ -31,7 +31,7 @@ export default observer(
 		};
 
 		openPopUp = (event) => {
-			this.setState({ open: true, chosenComent: event.target.value });
+			this.setState({ open: true, chosenComment: event.target.value });
 		};
 
 		render() {
