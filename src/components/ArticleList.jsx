@@ -3,7 +3,7 @@
 import React from "react";
 import { Link } from "@reach/router";
 
-const GenerateList = (props) => {
+const ArticleList = (props) => {
 	return (
 		<ul>
 			{props.articles.map((article) => {
@@ -21,4 +21,4 @@ const GenerateList = (props) => {
 	);
 };
 
-export default GenerateList;
+export default ArticleList;

@@ -3,7 +3,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import TopicsFilter from "./TopicsFilter";
-import GenerateList from "./GenerateList";
+import ArticleList from "./ArticleList";
 import SortBy from "./SortBy";
 
 export default class Home extends Component {
@@ -96,7 +96,7 @@ export default class Home extends Component {
 						getSortedArticles={this.getSortedArticles}
 						topic={this.props.topic}
 					/>
-					<GenerateList articles={this.state.articles} />
+					<ArticleList articles={this.state.articles} />
 				</div>
 			);
 		}
