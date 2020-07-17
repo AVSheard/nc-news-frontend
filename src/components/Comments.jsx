@@ -3,7 +3,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import NewComment from "./NewComment";
-import GenerateComments from "./GenerateComments";
+import CurrentComments from "./CurrentComments";
 import { observer } from "mobx-react";
 import { userInfo } from "../stores/userInfo";
 
@@ -51,7 +51,7 @@ export default observer(
 						comments={comments}
 						uploadComment={this.uploadComment}
 					/>
-					<GenerateComments
+					<CurrentComments
 						id={id}
 						comments={comments}
 						retrieveComments={this.retrieveComments}

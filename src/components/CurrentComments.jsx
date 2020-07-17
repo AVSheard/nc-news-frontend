@@ -8,7 +8,7 @@ import Modal from "react-modal";
 import Voter from "./Voter";
 
 export default observer(
-	class GenerateComments extends Component {
+	class CurrentComments extends Component {
 		state = { open: false, chosenComment: null };
 
 		closePopUp = () => {
