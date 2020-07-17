@@ -4,7 +4,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import TopicsFilter from "./TopicsFilter";
 import ArticleList from "./ArticleList";
-import SortBy from "./SortBy";
+import SortBySelector from "./SortBySelector";
 
 export default class Home extends Component {
 	state = { articles: [], loading: true, msg: "", status: 200 };
@@ -92,7 +92,7 @@ export default class Home extends Component {
 				<div>
 					<h1>{this.props.topic || "Home"}</h1>
 					<TopicsFilter />
-					<SortBy
+					<SortBySelector
 						getSortedArticles={this.getSortedArticles}
 						topic={this.props.topic}
 					/>

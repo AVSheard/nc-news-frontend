@@ -2,7 +2,7 @@
 
 import React from "react";
 
-class SortBy extends React.Component {
+class SortBySelector extends React.Component {
 	state = { selectedOption: null };
 
 	handleChange = (event) => {
@@ -24,4 +24,4 @@ class SortBy extends React.Component {
 	}
 }
 
-export default SortBy;
+export default SortBySelector;
