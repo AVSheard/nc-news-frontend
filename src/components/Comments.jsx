@@ -54,7 +54,7 @@ export default observer(
 					<GenerateComments
 						id={id}
 						comments={comments}
-						retrieveComments={this.retriveComments}
+						retrieveComments={this.retrieveComments}
 					/>
 				</>
 			);
