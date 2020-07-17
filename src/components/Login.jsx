@@ -52,7 +52,7 @@ export default observer(
 					</form>
 					<Modal className="popup" ariaHideApp={false} isOpen={this.state.open}>
 						{userInfo.user ? (
-							<p>You have been sucsesfully logged in</p>
+							<p>You have been successfully logged in</p>
 						) : (
 							<p>Invalid username please try again</p>
 						)}

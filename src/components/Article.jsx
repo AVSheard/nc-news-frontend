@@ -16,7 +16,7 @@ export default class Article extends Component {
 		});
 	};
 
-	retriveArticle = (id) => {
+	retrieveArticle = (id) => {
 		axios
 			.get(`https://nc-news-anthony.herokuapp.com/api/articles/${id}`)
 			.then((res) => {
@@ -28,7 +28,7 @@ export default class Article extends Component {
 	};
 
 	componentDidMount() {
-		this.retriveArticle(this.props.id);
+		this.retrieveArticle(this.props.id);
 	}
 
 	render() {

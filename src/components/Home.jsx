@@ -17,7 +17,7 @@ export default class Home extends Component {
 		});
 	};
 
-	retriveArticles = (topic) => {
+	retrieveArticles = (topic) => {
 		if (topic) {
 			axios
 				.get(
@@ -68,12 +68,12 @@ export default class Home extends Component {
 	};
 
 	componentDidMount() {
-		this.retriveArticles(this.props.topic);
+		this.retrieveArticles(this.props.topic);
 	}
 
 	componentDidUpdate(prevProps, prevState) {
 		if (prevProps.topic !== this.props.topic) {
-			this.retriveArticles(this.props.topic);
+			this.retrieveArticles(this.props.topic);
 		}
 	}
 

@@ -16,7 +16,7 @@ export default observer(
 		};
 
 		componentDidMount = () => {
-			this.props.retriveComments(this.props.id);
+			this.props.retrieveComments(this.props.id);
 		};
 
 		handleClick = (event) => {
@@ -26,7 +26,7 @@ export default observer(
 					`https://nc-news-anthony.herokuapp.com/api/comments/${this.state.chosenComment}`
 				)
 				.then((res) => {
-					this.props.retriveComments(this.props.id);
+					this.props.retrieveComments(this.props.id);
 				});
 		};
 

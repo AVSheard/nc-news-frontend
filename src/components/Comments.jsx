@@ -11,7 +11,7 @@ export default observer(
 	class Comments extends Component {
 		state = { comments: [] };
 
-		retriveComments = (id) => {
+		retrieveComments = (id) => {
 			axios
 				.get(
 					`https://nc-news-anthony.herokuapp.com/api/articles/${id}/comments`
@@ -54,7 +54,7 @@ export default observer(
 					<GenerateComments
 						id={id}
 						comments={comments}
-						retriveComments={this.retriveComments}
+						retrieveComments={this.retriveComments}
 					/>
 				</>
 			);

@@ -7,7 +7,7 @@ import { Link } from "@reach/router";
 export default class TopicsFilter extends Component {
 	state = { topics: {}, loading: true };
 
-	retriveTopics = () => {
+	retrieveTopics = () => {
 		axios
 			.get("https://nc-news-anthony.herokuapp.com/api/topics")
 			.then((res) => {
@@ -16,7 +16,7 @@ export default class TopicsFilter extends Component {
 	};
 
 	componentDidMount() {
-		this.retriveTopics();
+		this.retrieveTopics();
 	}
 
 	render() {
