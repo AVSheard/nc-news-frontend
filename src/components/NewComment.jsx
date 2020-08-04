@@ -26,6 +26,7 @@ export default observer(
 						<form onSubmit={this.handleSubmit}>
 							<label>
 								<textarea
+									className="commentInput"
 									type="text"
 									value={this.state.comment}
 									onChange={this.handleChange}
