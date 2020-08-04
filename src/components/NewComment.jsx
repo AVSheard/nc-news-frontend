@@ -25,11 +25,11 @@ export default observer(
 					{userInfo.user && (
 						<form onSubmit={this.handleSubmit}>
 							<label>
-								Add comment:
-								<input
+								<textarea
 									type="text"
 									value={this.state.comment}
-									onChange={this.handleChange}></input>
+									onChange={this.handleChange}
+									placeholder={"Write a comment..."}></textarea>
 							</label>
 							<input type="submit" value="Submit"></input>
 						</form>
