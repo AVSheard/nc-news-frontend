@@ -18,27 +18,16 @@ export default class Home extends Component {
 	};
 
 	retrieveArticles = (topic) => {
-		if (topic) {
-			axios
-				.get(
-					`https://nc-news-anthony.herokuapp.com/api/articles?topic=${topic}`
-				)
-				.then((res) => {
-					this.setState({ articles: res.data.articles, loading: false });
-				})
-				.catch((err) => {
-					this.handleError(err);
-				});
-		} else {
-			axios
-				.get("https://nc-news-anthony.herokuapp.com/api/articles")
-				.then((res) => {
-					this.setState({ articles: res.data.articles, loading: false });
-				})
-				.catch((err) => {
-					this.handleError(err);
-				});
-		}
+		axios
+			.get(`https://nc-news-anthony.herokuapp.com/api/articles`, {
+				params: { topic: topic },
+			})
+			.then((res) => {
+				this.setState({ articles: res.data.articles, loading: false });
+			})
+			.catch((err) => {
+				this.handleError(err);
+			});
 	};
 
 	getSortedArticles = (key, topic) => {
