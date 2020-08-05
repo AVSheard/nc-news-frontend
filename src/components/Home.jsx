@@ -31,29 +31,16 @@ export default class Home extends Component {
 	};
 
 	getSortedArticles = (key, topic) => {
-		if (topic) {
-			return axios
-				.get(
-					`https://nc-news-anthony.herokuapp.com/api/articles?sort_by=${key}&topic=${topic}`
-				)
-				.then((res) => {
-					this.setState({ articles: res.data.articles });
-				})
-				.catch((err) => {
-					this.handleError(err);
-				});
-		} else {
-			return axios
-				.get(
-					`https://nc-news-anthony.herokuapp.com/api/articles?sort_by=${key}`
-				)
-				.then((res) => {
-					this.setState({ articles: res.data.articles });
-				})
-				.catch((err) => {
-					this.handleError(err);
-				});
-		}
+		return axios
+			.get(`https://nc-news-anthony.herokuapp.com/api/articles`, {
+				params: { topic: topic, sort_by: key },
+			})
+			.then((res) => {
+				this.setState({ articles: res.data.articles });
+			})
+			.catch((err) => {
+				this.handleError(err);
+			});
 	};
 
 	componentDidMount() {
