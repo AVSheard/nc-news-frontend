@@ -30,7 +30,7 @@ export default class TopicsFilter extends Component {
 						return (
 							<>
 								{" "}
-								<Link to={`${topic.slug}`} key={topic.slug}>
+								<Link to={`/${topic.slug}`} key={topic.slug}>
 									{topic.slug}
 								</Link>
 							</>
