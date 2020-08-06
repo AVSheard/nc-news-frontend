@@ -7,7 +7,7 @@ class SortBySelector extends React.Component {
 
 	handleChange = (event) => {
 		this.setState({ selectedOption: event.target.value });
-		this.props.getSortedArticles(event.target.value, this.props.topic);
+		this.props.retrieveArticles(this.props.topic, event.target.value);
 	};
 
 	render() {

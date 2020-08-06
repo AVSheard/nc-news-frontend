@@ -17,26 +17,13 @@ export default class Home extends Component {
 		});
 	};
 
-	retrieveArticles = (topic) => {
+	retrieveArticles = (topic, key) => {
 		axios
-			.get(`https://nc-news-anthony.herokuapp.com/api/articles`, {
-				params: { topic: topic },
-			})
-			.then((res) => {
-				this.setState({ articles: res.data.articles, loading: false });
-			})
-			.catch((err) => {
-				this.handleError(err);
-			});
-	};
-
-	getSortedArticles = (key, topic) => {
-		return axios
 			.get(`https://nc-news-anthony.herokuapp.com/api/articles`, {
 				params: { topic: topic, sort_by: key },
 			})
 			.then((res) => {
-				this.setState({ articles: res.data.articles });
+				this.setState({ articles: res.data.articles, loading: false });
 			})
 			.catch((err) => {
 				this.handleError(err);
@@ -69,7 +56,7 @@ export default class Home extends Component {
 					<h1>{this.props.topic || "Home"}</h1>
 					<TopicsFilter />
 					<SortBySelector
-						getSortedArticles={this.getSortedArticles}
+						retrieveArticles={this.retrieveArticles}
 						topic={this.props.topic}
 					/>
 					<ArticleList articles={this.state.articles} />
