@@ -7,20 +7,22 @@ import { userInfo } from "../stores/userInfo";
 
 export default observer(
 	class Voter extends Component {
-		state = { votes: 0 };
+		state = { votes: 0, alreadyVoted: false };
 
 		componentDidMount() {
 			this.setState({ votes: this.props.votes });
 		}
 
 		handleVote = (voteChange) => {
-			axios.patch(
-				`https://nc-news-anthony.herokuapp.com/api/${this.props.url}/${this.props.id}`,
-				{ inc_votes: voteChange }
-			);
-			this.setState((currentState) => {
-				return { votes: currentState.votes + voteChange };
-			});
+			if (!this.state.alreadyVoted) {
+				axios.patch(
+					`https://nc-news-anthony.herokuapp.com/api/${this.props.url}/${this.props.id}`,
+					{ inc_votes: voteChange }
+				);
+				this.setState((currentState) => {
+					return { votes: currentState.votes + voteChange, alreadyVoted: true };
+				});
+			}
 		};
 
 		render() {
