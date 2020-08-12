@@ -1,5 +1,3 @@
-/** @format */
-
 import React, { Component } from "react";
 import axios from "axios";
 import { observer } from "mobx-react";

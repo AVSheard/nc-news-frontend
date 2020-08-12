@@ -1,4 +1,3 @@
-/** @format */
 import { decorate, observable } from "mobx";
 
 export class UserInfo {

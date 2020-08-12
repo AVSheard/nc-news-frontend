@@ -1,5 +1,3 @@
-/** @format */
-
 import React from "react";
 
 class SortBySelector extends React.Component {

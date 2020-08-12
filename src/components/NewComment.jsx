@@ -1,5 +1,3 @@
-/** @format */
-
 import React, { Component } from "react";
 import { observer } from "mobx-react";
 import { userInfo } from "../stores/userInfo";
